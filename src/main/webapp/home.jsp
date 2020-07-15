@@ -16,6 +16,6 @@ String lastname = "E";%>
 </head>
 <body>
 <h1>Hello, <%= firstname + " " +lastname%></h1>
-<%@include file="aboutme.jsp"%>
+<%@include file="partials/aboutme.jsp"%>
 </body>
 </html>
