@@ -7,6 +7,6 @@
 --%>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>${param.title}</title>
     <link rel="stylesheet" href="">
 </head>
