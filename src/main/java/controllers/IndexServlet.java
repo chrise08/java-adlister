@@ -30,6 +30,6 @@ public class IndexServlet extends HttpServlet {
 		allBurgers.add(burgerDao.findById(3));
 		
 		request.setAttribute("allBurgers", allBurgers);
-		request.getRequestDispatcher("WEB-INF/view/index.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
 	}
 }

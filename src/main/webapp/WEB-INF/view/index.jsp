@@ -15,7 +15,7 @@
     <%--  List all the burgers, with links to their individual product pages  --%>
     <div class="list-group">
         <c:forEach items="${allBurgers}" var="burger">
-            <a href="/burgers/show?id=${burger.id}" class="list-group-item list-group-item-action">
+            <a href="burgers/show?id=${burger.id}" class="list-group-item list-group-item-action">
                 <strong>${burger.title}</strong> - ${burger.description}
             </a>
         </c:forEach>
