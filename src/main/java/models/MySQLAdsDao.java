@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import com.mysql.cj.jdbc.Driver;
 
-import javax.xml.transform.Result;
-
 public class MySQLAdsDao implements Ads{
 	
 	private Connection connection;
@@ -52,15 +50,16 @@ public class MySQLAdsDao implements Ads{
 		
 		try {
 			Statement stmt = connection.createStatement();
-			stmt.executeUpdate(String.format("INSERT INTO ads (id, user_id, title, description) VALUES ('%d', '%d', "
-			                                 + "'%s', '%s')", ad.getId(), ad.getUserId(), ad.getTitle(),
+			stmt.executeUpdate(String.format("INSERT INTO ads (user_id, title, description) VALUES (%d, "
+			                                 + "'%s', '%s')", ad.getUserId(), ad.getTitle(),
 			                                 ad.getDescription()), Statement.RETURN_GENERATED_KEYS);
 			ResultSet rs = stmt.getGeneratedKeys();
-			rs.next();
-			lastInsertedId = rs.getLong(1);
+			if (rs.next()) {
+				lastInsertedId = rs.getLong(1);
+			}
 		}
-		catch (SQLException throwables) {
-			throwables.printStackTrace();
+		catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return lastInsertedId;
 	}
