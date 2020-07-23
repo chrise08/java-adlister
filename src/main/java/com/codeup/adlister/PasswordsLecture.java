@@ -49,7 +49,7 @@ public class PasswordsLecture {
 		/* ************** INCREASING SALT ROUNDS ************** */
 //        https://auth0.com/blog/hashing-in-action-understanding-bcrypt/
 //        https://stackoverflow.com/questions/31470149/unable-to-understand-bcrypt-gensalt-in-bcrypt-npm-package
-        String password3 = "g@nym3d3Rule$";
+//        String password3 = "g@nym3d3Rule$";
 //        String hashedPw = BCrypt.hashpw(password3, BCrypt.gensalt());
 //        String hashedPw2 = BCrypt.hashpw(password3, BCrypt.gensalt(12));
 //        String hashedPw3 = BCrypt.hashpw(password3, BCrypt.gensalt(14));
@@ -57,13 +57,13 @@ public class PasswordsLecture {
 //        System.out.println(hashedPw);
 //        System.out.println(hashedPw2);
 //        System.out.println(hashedPw3);
-        for (int saltRounds = 10; saltRounds < 18; saltRounds++) {
-            long startTime = System.nanoTime();
-            String hashedPw = BCrypt.hashpw(password3, BCrypt.gensalt(saltRounds));
-            long endTime = System.nanoTime();
-            long duration = (endTime - startTime);
-            System.out.println("bcrypt | cost " + saltRounds + " time to hash: " + duration/1000000 + " ms | " + hashedPw); //divide by 1000000 for ms
-        }
+//        for (int saltRounds = 10; saltRounds < 18; saltRounds++) {
+//            long startTime = System.nanoTime();
+//            String hashedPw = BCrypt.hashpw(password3, BCrypt.gensalt(saltRounds));
+//            long endTime = System.nanoTime();
+//            long duration = (endTime - startTime);
+//            System.out.println("bcrypt | cost " + saltRounds + " time to hash: " + duration/1000000 + " ms | " + hashedPw); //divide by 1000000 for ms
+//        }
 		// Must store hashed passwords before saving to database
 		// Do not hash passwords more than once
 		// Checking the password should be in the login servlet
